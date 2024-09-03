@@ -1,125 +1,143 @@
-
 // importing a module
-// mod guess_game;
+mod guess_2;
 
-// use std::io;
+use std::io;
 
-fn main(){
+fn main() {
     // mut is for mutable variables, variables are immutable by default
-//   let x  = 5;
+    // let var_name = 5;
+    // let x = var_name;
 
-//   let x = x+ 5;
+    // let x = x + 5;
 
-//   {
-//     // shadowing in scoped 
-//     let x = x * 2;
-//     println!("the value of x is: {x}");
-//   }
+    // {
+    //     // shadowing in scoped
+    //     let x = x * 2;
+    //     println!("the value of x in the shadowing scoped is: {x}");
+    // }
 
-//   println!("using shadowing the value of x is: {x}");
+    // println!("the value of x outside is :{x}");
+
+    // &str is used for string literals
+    // let string_value = "ninja";
+
+    // println!("the value of above string is  {string_value}");
+
+    // println!("the value of string is {}", string_value);
+    // guess_2::guessing_game_2();
+
+    // DECIMAL
+
+    // let x = 22.3;
+    // let y: f32 = 53.3;
+
+    // BOOL
+    // // if you want to add any expressions in println then you have to do it outside of "",
+    // println!("addition of x and y is :{}", x+y);
+
+    // let t = true;
+
+    // println!("the value of t is: {}",t);
+
+    // TUPLE
+
+    // it is just like objects but tuples are bit different
+    // let tup = (500,6.4,1);
+
+    // let destructed = tup.1;
+
+    // println!("the value for tup y is {destructed}");
+
+    // Arrays
+    // let ninja = ['n','i','n','j','a'];
+
+    //  just like js array, can be accessed using array indexes
+    // println!("The value of ninja is : {}", ninja[3]);
+
+    // // this will create an array of 5 elements and each element will be 3
+// let a = [1;100]; // using this ; in the array itself we can create a range of any array
+// the first part before ; is the item which you want to
+    // println!("the value for a is: {}",a[99]);
+
+    // rust prevents you from accessing an element outside of the array
+    // let a: [i32; 5] = [1,2,3,4,5];
+
+    // println!("enter the index to access the element");
+
+    // let mut index = String::new();
+
+    // io::stdin().read_line(&mut index).expect("Failed to read line");
+
+    // let index: usize = index.trim().parse().expect("Index entered was not a number");
+
+    // let element = a[index];
+
+    // println!("The value of the element at index {index} is: {element}");
+
+    // another_function(5)
+    access_index()
+}
 
 
-// &str is used for string literals 
-// let string_value = "ninja";
+fn access_index() {
 
-// println!("the value of string is {}", string_value);
-// guess_game::guessing_game();
+    let array: [i32; 5] = [1,2,3,4,5];
 
-// DECIMAL
+    println!("Enter the index of the number you want to acces");
 
-// let x = 22.3;
-// let y: f32 = 53.3;
+    let mut index  = String::new();
 
+    io::stdin().read_line(&mut index).expect("failed getting the number");
 
-// BOOL
-// // if you want to add any expressions in println then you have to do it outside of "",
-// println!("addition of x and y is :{}", x+y);
+    let index: usize = index.trim().parse().expect("Enter a valid number");
 
-// let t = true;
+    let element = array[index];
 
-// println!("the value of t is: {}",t);
-
-
-// TUPLE
-
-// let tup = (500,6.4,1);
-
-// let destructed = tup.0;
-
-// println!("the value for tup y is {destructed}")
-
-
-// Arrays 
-// let ninja = ['n','i','n','j','a'];
-
-// println!("The value of ninja is : {}", ninja[0]);
-
-// // this will create an array of 5 elements and each element will be 3
-// let a = [3; 5];
-
-// println!("the value for a is: {}",a[1]);
-
-
-// rust prevents you from accessing an element outside of the array
-// let a: [i32; 5] = [1,2,3,4,5];
-
-// println!("enter the index to access the element");
-
-// let mut index = String::new();
-
-// io::stdin().read_line(&mut index).expect("Failed to read line");
-
-// let index: usize = index.trim().parse().expect("Index entered was not a number");
-
-// let element = a[index];
-
-// println!("The value of the element at index {index} is: {element}");
-
-another_function(5)
+    println!("the value at {index} is {element}");
 
 }
 
-fn another_function(x: i32) {
+// fn another_function(x: i32) {
 
-    let new_value = add_two(x, 2);
-    println!("the value of new value is: {}",new_value);
+//     let new_value = add_two(x, 2);
+//     println!("the value of new value is: {}",new_value);
 
-    let y = {
-        let x = 3;
-        new_value + x
-    };
+//     let y = {
+//         let x = 3;
+//         new_value + x
+//     };
 
-    if y >= 10 {
-        println!("the value of y is greater than 10");
-    }
-    else if y == 5 {
-        println!("the value of y is equal to 5");
-    }
-    else {
-        println!("the value of y is less than 10");
-    }
+//     if y >= 10 {
+//         println!("the value of y is greater than 10");
+//     }
+//     else if y == 5 {
+//         println!("the value of y is equal to 5");
+//     }
+//     else {
+//         println!("the value of y is less than 10");
+//     }
 
-    let condition = true;
+//     let condition = true;
 
-    // conditional assignment
-    let assigned_new = if condition { "new"} else { "old"};
+//     // conditional assignment
+//     let assigned_new = if condition { "new"} else { "old"};
 
-    println!("assigned new : {assigned_new}");
+//     println!("assigned new : {assigned_new}");
 
-    // loop
-    let mut counter = 0;
-    loop {
-        counter += 1;
-        println!("the value of counter was: {}", counter);
+//     // loop
+//     let mut counter = 0;
+//     loop {
+//         counter += 1;
+//         println!("the value of counter was: {}", counter);
 
-    }
-    println!("the final value is : {}", counter);
+//     }
+//     println!("the final value is : {}", counter);
 
-}
-/**
- * @param x
- * @return i32
- */
-fn add_two (x:i32,other_value: i32) -> i32{
-     x+other_value
-}
+// }
+// /**
+//  * @param x
+//  * @return i32
+//  */
+// fn add_two (x:i32,other_value: i32) -> i32{
+//      x+other_value
+// }

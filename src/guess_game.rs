@@ -4,31 +4,33 @@ use std::io;
 
 use colored::*;
 
-
 pub fn guessing_game() {
-    println!("Guess the number homie");
+    println!("Guess the number homie ");
 
-    let secret_number = rand::thread_rng().gen_range(1..=100);
+    let gen_range = rand::thread_rng().gen_range(1..=100);
+    let secret_number: u32 = gen_range;
 
     loop {
         println!("Please input your guess");
 
-        let mut guess = String :: new();
+        let mut guess = String::new();
 
-        io::stdin().read_line(&mut guess).expect("Failed to read line");
+        io::stdin()
+            .read_line(&mut guess)
+            .expect("Failed to read line");
 
-        let guess : u32 = match guess.trim().parse(){
+        let guess: u32 = match guess.trim().parse() {
             Ok(num) => num,
             Err(_) => continue,
         };
-        //  new way to do this 
+        //  new way to do this
         println!("you guessed: {guess}");
 
         match guess.cmp(&secret_number) {
-            Ordering::Less => println!("{}","To small, that's not what she said 😅".red()),
-            Ordering::Greater => println!("{}","To big, that's what she said 🤣".blue()),
+            Ordering::Less => println!("{}", "To small, that's not what she said 😅".red()),
+            Ordering::Greater => println!("{}", "To big, that's what she said 🤣".blue()),
             Ordering::Equal => {
-                println!("{}","You got it right! 🎉".green());
+                println!("{}", "You got it right! 🎉".green());
                 break;
             }
         }

@@ -1,5 +1,5 @@
 // importing a module
-mod guess_2;
+// mod guess_2;
 
 use std::io;
 
@@ -75,10 +75,10 @@ fn main() {
     // println!("The value of the element at index {index} is: {element}");
 
     // another_function(5)
-    access_index()
+    // access_index()
+    // check_not_so_important_stuff();
+    for_your_i_only()
 }
-
-
 fn access_index() {
 
     let array: [i32; 5] = [1,2,3,4,5];
@@ -95,6 +95,66 @@ fn access_index() {
 
     println!("the value at {index} is {element}");
 
+}
+fn array_and_tuple() {
+    // basically tuples are like arrays in rust fixed in size can't be increased, can be used to store data of more than one type
+    // arrays are also of fixed length, 
+    let tup = (1,2,3);
+    let arr: [i32;2] = [1;2] ;// creates array of len 2
+    let tup = tup.1;
+    let arr = arr[1];
+    println!("the value for tuple is: {tup} and array : {arr}");
+ }
+
+ fn inline_control_flow(){
+    let condition = true;
+    let value = if condition { 2 } else { 0}; // return type of if and else should be same
+    println!(
+        "the value is : {value}"
+    )
+ }
+
+
+ fn loops_and_shit(){
+
+    let mut counter = 0;
+    // labelling loop
+   'ninja_loop: loop {
+    counter +=1;
+        if counter > 10
+        {
+            break 'ninja_loop counter;
+        }
+        else {
+            println!("Nishant is cool");
+
+        }
+    };
+    println!("result -> {counter}");
+ }
+
+
+
+ fn for_your_i_only() {
+   
+   for number in (1..5).rev() {
+        println!("{number}");
+   }
+   println!("LIFT OFF!");
+
+ }
+ fn add_num(value: i32) -> i32 {
+    value + 1
+ }
+
+fn check_not_so_important_stuff() {
+   // basically tuples are like arrays in rust fixed in size can't be increased, can be used to store data of more than one type
+   // arrays are also of fixed length, 
+   let tup = (1,2,3);
+   let arr: [i32;2] = [1;2] ;// creates array of len 2
+   let tup = tup.1;
+   let arr = arr[1];
+   println!("the value for tuple is: {tup} and array : {arr}");
 }
 
 // fn another_function(x: i32) {
